@@ -1,4 +1,3 @@
-import 'package:beit_bite/customer/homeCustomer.dart';
 import 'package:beit_bite/customer/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -8,25 +7,25 @@ final indexBottomNavbarProvider = StateProvider<int>((ref) {
   return 0;
 });
 
-class mainCustomer extends ConsumerWidget {
+class mainChef extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final indexBottomNavbar = ref.watch(indexBottomNavbarProvider);
 
     final bodies = [
-      Center(
-        child: homeCustomer(),
+      const Center(
+        child: Text('Hello From Home'),
       ),
-      Center(
+      const Center(
         child: Text('Hello From Favorite'),
       ),
-      Center(
+      const Center(
         child: Text('Hello From dishes'),
       ),
-      Center(
+      const Center(
         child: Text('Hello From starred'),
       ),
-      Center(
+      const Center(
         child: Text('Hello From Settings'),
       ),
     ];
@@ -36,7 +35,7 @@ class mainCustomer extends ConsumerWidget {
         automaticallyImplyLeading: false,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            color: Color(0xFFFFA07A),
+            color: Color(0xFF153F54),
           ),
         ),
         actions: [
@@ -54,19 +53,19 @@ class mainCustomer extends ConsumerWidget {
             BottomNavigationBarItem(
               icon: Icon(LucideIcons.home),
               label: 'Home',
-              backgroundColor: Color(0xFFFFA07A),
+              backgroundColor: Color(0xFF153F54),
             ),
             BottomNavigationBarItem(
                 icon: Icon(LucideIcons.chefHat), label: 'Chefs'),
             BottomNavigationBarItem(
-                icon: Icon(LucideIcons.cakeSlice), label: 'Table'),
+                icon: Icon(LucideIcons.clipboardList), label: 'Orders'),
             BottomNavigationBarItem(
                 icon: Icon(LucideIcons.utensils), label: 'Dishes'),
             BottomNavigationBarItem(
                 icon: Icon(LucideIcons.menu), label: 'Options'),
           ],
-          selectedItemColor: Color(0xFF153F54),
-          selectedIconTheme: IconThemeData(color: Color(0xFF153F54)),
+          selectedItemColor: Color(0xFFFFA07A),
+          selectedIconTheme: IconThemeData(color: Color(0xFFFFA07A)),
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.w900),
           unselectedItemColor: Color(0xFFFFFFFF),
           unselectedIconTheme: IconThemeData(

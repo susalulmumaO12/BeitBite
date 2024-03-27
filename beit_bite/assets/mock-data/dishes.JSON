@@ -1,0 +1,32 @@
+{
+    "dishes": [
+      {
+        "name": "Egg Rolls",
+        "ingredients": "Ingredient 1, Ingredient 2",
+        "description": "This is a delicious dish.",
+        "numberOfServes": 2,
+        "category": "Breakfast",
+        "chefName": "Chef A",
+        "imagePath": "assets/images/chef.png"
+      },
+      {
+        "name": "Yalanji",
+        "ingredients": "Ingredient 1, Ingredient 2",
+        "description": "This is a delicious dish.",
+        "numberOfServes": 2,
+        "category": "Snacks",
+        "chefName": "Chef B",
+        "imagePath": "assets/images/chef.png"
+      },
+      {
+        "name": "Pancakes",
+        "ingredients": "Flour, Eggs, Milk, Sugar, Baking Powder",
+        "description": "Fluffy pancakes served with maple syrup and fresh berries.",
+        "numberOfServes": 4,
+        "category": "Dessert",
+        "chefName": "Chef A",
+        "imagePath": "assets/images/chef.png"
+      }
+    ]
+  }
+  

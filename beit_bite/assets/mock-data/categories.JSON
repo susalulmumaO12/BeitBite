@@ -1,0 +1,37 @@
+{
+    "categories": [
+
+        {
+            "id": "1",
+            "name": "Breakfast"
+        },
+        {
+            "id": "2",
+            "name": "Snacks"
+        },
+        {
+            "id": "3",
+            "name": "Lunch"
+        },
+        {
+            "id": "4",
+            "name": "Dinner"
+        },
+        {
+            "id": "5",
+            "name": "Dessert"
+        },
+        {
+            "id": "6",
+            "name": "Party"
+        },
+        {
+            "id": "7",
+            "name": "Kids"
+        },
+        {
+            "id": "8",
+            "name": "Brunch"
+        }
+    ]
+}
