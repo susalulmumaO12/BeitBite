@@ -1,11 +1,9 @@
 const Dish = require("../models/dish");
 
-// Controller to create a new dish by cooker
+// Controller to create a new dish
 exports.createDish = async (req, res) => {
   try {
     const newDish = new Dish(req.body);
-    // You may want to associate the dish with the cooker who created it
-    // For example: newDish.cooker = req.user.id; (assuming you have authentication middleware)
     await newDish.save();
     res
       .status(201)

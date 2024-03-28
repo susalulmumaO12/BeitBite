@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
 const cookerRoutes = require("./routes/cookerRoutes");
 const orderRoutes = require("./routes/orderRoutes");
@@ -11,12 +12,12 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB
+dotenv.config();
+
+const MONGOURL = process.env.MONGO_URL;
+
 mongoose
-  .connect("mongodb://localhost:27017/your_database_name", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(MONGOURL)
   .then(() => {
     console.log("Connected to MongoDB");
   })

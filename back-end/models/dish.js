@@ -1,12 +1,31 @@
 const mongoose = require("mongoose");
+const Cooker = require("./cooker");
+const Schema = mongoose.Schema;
+const DishSchema = new Schema(
+  {
+    cookerId: {
+      type: Schema.Types.ObjectId,
+      ref: `Cooker`,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const dishSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  description: { type: String },
-  price: { type: Number, required: true },
-  // Other fields you may want to include, such as ingredients, category, etc.
-});
-
-const Dish = mongoose.model("Dish", dishSchema);
-
-module.exports = Dish;
+module.exports = mongoose.model("Dish", DishSchema);

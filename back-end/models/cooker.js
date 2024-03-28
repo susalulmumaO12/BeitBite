@@ -1,17 +1,66 @@
-// models/cooker.js
-
 const mongoose = require("mongoose");
+const Order = require("./order");
+const Address = require("./address");
+const bcrypt = require("bcrypt");
+const Schema = mongoose.Schema;
 
-const cookerSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  profile: {
-    // You can define fields specific to the profile of the cooker here
+const cookerSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
   },
-  // Add more fields specific to the cooker if needed
+  address: {
+    type: Schema.Types.ObjectId,
+    ref: `Address`,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      "Please provide valid email",
+    ],
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6,
+  },
+  averageRating: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  aboutCooker: {
+    type: String,
+    required: true,
+  },
+  openingHour: {
+    type: String,
+    required: true,
+  },
+  closingHour: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    enum: ["Pending", "Approved"],
+    default: "Pending",
+    required: true,
+  },
+  paymentType: [
+    {
+      type: String,
+      enum: ["card", "cash"],
+    },
+  ],
 });
 
-const Cooker = mongoose.model("Cooker", cookerSchema);
-
-module.exports = Cooker;
+module.exports = mongoose.model("Cooker", cookerSchema);
