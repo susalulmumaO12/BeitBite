@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 // Controller for cooker sign-up
 exports.signup = async (req, res) => {
   try {
-    // Create a new cooker based on request body
     const newCooker = new Cooker(req.body);
     await newCooker.save();
     res.status(201).json({ message: "Cooker created successfully" });
@@ -17,12 +16,10 @@ exports.signup = async (req, res) => {
 exports.signin = async (req, res) => {
   try {
     const { email, password } = req.body;
-    // Find the cooker by email
     const cooker = await Cooker.findOne({ email });
     if (!cooker) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-    // Check if the password is correct
     const isPasswordValid = await bcrypt.compare(password, cooker.password);
     if (!isPasswordValid) {
       return res.status(401).json({ error: "Invalid email or password" });

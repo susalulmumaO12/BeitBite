@@ -24,21 +24,17 @@ exports.addItemToCart = async (req, res) => {
     let cart = await Cart.findOne({ user: userId });
 
     if (!cart) {
-      // If the user doesn't have a cart, create a new one
       cart = new Cart({
         user: userId,
         items: [{ dish: dishId, quantity: quantity }],
       });
     } else {
-      // If the user already has a cart, check if the dish is already in the cart
       const existingItemIndex = cart.items.findIndex((item) =>
         item.dish.equals(dishId)
       );
       if (existingItemIndex !== -1) {
-        // If the dish is already in the cart, update its quantity
         cart.items[existingItemIndex].quantity += quantity;
       } else {
-        // If the dish is not in the cart, add it as a new item
         cart.items.push({ dish: dishId, quantity: quantity });
       }
     }
