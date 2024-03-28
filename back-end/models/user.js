@@ -1,32 +1,64 @@
-// models/user.js
-
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt");
 
-const profileSchema = new mongoose.Schema({
-  name: { type: String },
-  address: { type: String },
-  // Add more fields as needed
-});
-
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  profile: profileSchema, // Embedded profile subdocument
-  cart: [
+const cartSchema = new Schema({
+  itemId: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Cart",
+      type: Schema.Types.ObjectId,
+      ref: `Dish`,
+      required: true,
     },
   ],
-  orders: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
-    },
-  ],
+  total: {
+    type: Number,
+    required: true,
+  },
 });
 
-const User = mongoose.model("User", userSchema);
+const userSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      "Please provide valid email",
+    ],
+  },
+  password: {
+    type: String,
+    minlength: 6,
+  },
+  phoneNumber: {
+    type: String,
+  },
+  providerId: {
+    type: String,
+  },
+  profilePicture: {
+    type: String,
+  },
 
-module.exports = User;
+  cart: {
+    type: cartSchema,
+    default: {
+      itemId: [],
+      total: 0,
+    },
+  },
+  address: {
+    type: Schema.Types.ObjectId,
+    ref: `Address`,
+  },
+});
+
+module.exports = mongoose.model("user", userSchema);
