@@ -1,31 +1,31 @@
 {
     "dishes": [
       {
-        "name": "Egg Rolls",
+        "name": "Carrots",
         "ingredients": "Ingredient 1, Ingredient 2",
         "description": "This is a delicious dish.",
         "numberOfServes": 2,
         "category": "Breakfast",
-        "chefName": "Chef A",
-        "imagePath": "assets/images/chef.png"
+        "chefName": "Julia",
+        "imagePath": "assets/images/carrot.png"
       },
       {
-        "name": "Yalanji",
+        "name": "Chocolate Cake",
         "ingredients": "Ingredient 1, Ingredient 2",
         "description": "This is a delicious dish.",
         "numberOfServes": 2,
         "category": "Snacks",
-        "chefName": "Chef B",
-        "imagePath": "assets/images/chef.png"
+        "chefName": "Tommy",
+        "imagePath": "assets/images/cake.png"
       },
       {
-        "name": "Pancakes",
+        "name": "Cupcake",
         "ingredients": "Flour, Eggs, Milk, Sugar, Baking Powder",
         "description": "Fluffy pancakes served with maple syrup and fresh berries.",
         "numberOfServes": 4,
         "category": "Dessert",
-        "chefName": "Chef A",
-        "imagePath": "assets/images/chef.png"
+        "chefName": "Darcie",
+        "imagePath": "assets/images/cupcake.png"
       }
     ]
   }

@@ -7,10 +7,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class dishdetails extends ConsumerWidget {
+class dishdetailsPreview extends ConsumerWidget {
   final Dish dish;
 
-  const dishdetails({
+  const dishdetailsPreview({
     Key? key,
     required this.dish,
   }) : super(key: key);
@@ -22,17 +22,6 @@ class dishdetails extends ConsumerWidget {
 
     print('inside dish details....................................');
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Dish details',
-          style: TextStyle(
-            color: Color(0xFF153F54),
-            fontFamily: 'Bubblegum',
-            fontSize: screenSize.width / 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       body: Container(
         color: Colors.white,
         padding: EdgeInsets.all(8.0),
@@ -43,7 +32,7 @@ class dishdetails extends ConsumerWidget {
                 Column(
                   children: [
                     SizedBox.square(
-                        dimension: screenSize.width * 0.4,
+                        dimension: 150,
                         child: Image.asset(selectedDish.imagePath)),
                   ],
                 ),
@@ -51,17 +40,31 @@ class dishdetails extends ConsumerWidget {
                   width: 10,
                 ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: 20,
                     ),
-                    Text(selectedDish.name,
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold)),
                     Text(
-                      selectedDish.description,
-                      style: TextStyle(fontSize: 24),
+                      selectedDish.name,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Chef: ${selectedDish.chefName}",
+                      textAlign: TextAlign.left,
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Description: \n${selectedDish.description}",
+                      textAlign: TextAlign.left,
                     ),
                     // Add more details as needed
                   ],
