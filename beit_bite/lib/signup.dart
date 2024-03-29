@@ -197,8 +197,8 @@ class signuppage extends ConsumerWidget {
                             SnackBar(content: Text('Processing Data')));
 
                         isChef == AccountType.customer
-                            ? navigationService.navigateTo('/customerhome')
-                            : print('kjckjck');
+                            ? navigationService.navigateTo('/maincustomer')
+                            : navigationService.navigateTo('/mainchef');
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('You forgot something!')));

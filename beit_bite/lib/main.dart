@@ -1,3 +1,5 @@
+import 'package:beit_bite/chef/mainChef.dart';
+import 'package:beit_bite/customer/dishdetails.dart';
 import 'package:beit_bite/customer/mainCustomer.dart';
 import 'package:beit_bite/introscreen.dart';
 import 'package:beit_bite/login.dart';
@@ -40,6 +42,8 @@ class MyApp extends ConsumerWidget {
         '/signuppage': (context) => signuppage(),
         '/loginpage': (context) => loginpage(),
         '/maincustomer': (context) => mainCustomer(),
+        '/mainchef': (context) => mainChef(),
+        'dishdetails': (context) => dishdetails()
       },
     );
   }
