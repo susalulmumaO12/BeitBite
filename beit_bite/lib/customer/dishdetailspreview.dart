@@ -28,6 +28,7 @@ class dishdetailsPreview extends ConsumerWidget {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
                   children: [
@@ -36,11 +37,8 @@ class dishdetailsPreview extends ConsumerWidget {
                         child: Image.asset(selectedDish.imagePath)),
                   ],
                 ),
-                SizedBox(
-                  width: 10,
-                ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: 20,
@@ -65,8 +63,8 @@ class dishdetailsPreview extends ConsumerWidget {
                     Text(
                       "Description: \n${selectedDish.description}",
                       textAlign: TextAlign.left,
+                      softWrap: true,
                     ),
-                    // Add more details as needed
                   ],
                 ),
               ],

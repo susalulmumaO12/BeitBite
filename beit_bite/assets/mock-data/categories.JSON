@@ -4,22 +4,22 @@
         {
             "id": "1",
             "name": "Breakfast",
-            "imagePath": "assets/images/chef.png"
+            "imagePath": "assets/images/carrot.png"
         },
         {
             "id": "2",
             "name": "Snacks",
-            "imagePath": "assets/images/carrot.png"
+            "imagePath": "assets/images/watermelon.png"
         },
         {
             "id": "3",
             "name": "Lunch",
-            "imagePath": "assets/images/carrot.png"
+            "imagePath": "assets/images/beans.png"
         },
         {
             "id": "4",
             "name": "Dinner",
-            "imagePath": "assets/images/carrot.png"
+            "imagePath": "assets/images/fish.png"
         },
         {
             "id": "5",
@@ -29,17 +29,17 @@
         {
             "id": "6",
             "name": "Party",
-            "imagePath": "assets/images/carrot.png"
+            "imagePath": "assets/images/castella.png"
         },
         {
             "id": "7",
             "name": "Kids",
-            "imagePath": "assets/images/carrot.png"
+            "imagePath": "assets/images/cupcake.png"
         },
         {
             "id": "8",
             "name": "Brunch",
-            "imagePath": "assets/images/carrot.png"
+            "imagePath": "assets/images/cake.png"
         }
     ]
 }

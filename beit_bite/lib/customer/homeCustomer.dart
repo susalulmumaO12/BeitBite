@@ -28,6 +28,7 @@ class homeCustomer extends ConsumerWidget {
 
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 20),
           Padding(
@@ -117,6 +118,9 @@ class homeCustomer extends ConsumerWidget {
               error: (err, stack) => Text('Error: $err'),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
@@ -129,22 +133,44 @@ class homeCustomer extends ConsumerWidget {
               ),
             ),
           ),
-          Container(
-            // Add Container to wrap the content of catAsyncValue.when
-            height: 200,
-            child: catAsyncValue.when(
-              data: (cats) {
-                return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemCount: cats.length,
-                  itemBuilder: (context, index) {
-                    // Remainder of your code for building the GridView here
-                  },
-                );
-              },
-              error: (err, stack) => Text('Error: $err'),
-              loading: () => CircularProgressIndicator(),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: catAsyncValue.when(
+                data: (cats) {
+                  return GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10),
+                    itemCount: cats.length,
+                    itemBuilder: (context, index) {
+                      final cat = cats[index];
+                      return Stack(
+                        children: [
+                          Card(
+                            child: Image.asset(cat.imagePath),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              cat.name,
+                              style: TextStyle(
+                                color: Color(0xFF153F54),
+                                fontFamily: 'Bubblegum',
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                error: (err, stack) => Text('Error: $err'),
+                loading: () => CircularProgressIndicator(),
+              ),
             ),
           ),
         ],

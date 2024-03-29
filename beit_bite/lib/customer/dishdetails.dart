@@ -53,9 +53,6 @@ class dishdetails extends ConsumerWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 20,
-                    ),
                     Text(selectedDish.name,
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold)),
@@ -63,10 +60,17 @@ class dishdetails extends ConsumerWidget {
                       selectedDish.description,
                       style: TextStyle(fontSize: 24),
                     ),
-                    // Add more details as needed
                   ],
                 ),
               ],
+            ),
+            Text(
+              selectedDish.category,
+              style: TextStyle(fontSize: 24),
+            ),
+            Text(
+              selectedDish.ingredients,
+              style: TextStyle(fontSize: 24),
             ),
           ],
         ),

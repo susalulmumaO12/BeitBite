@@ -39,14 +39,25 @@ class mainCustomer extends ConsumerWidget {
             color: Color(0xFFFFA07A),
           ),
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              // Handle search button press
+        title: Container(
+          color: Colors.white,
+          child: TextFormField(
+            validator: (val) {
+              if (val == null || val.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
             },
+            onChanged: (value) {},
+            onEditingComplete: () {},
+            decoration: InputDecoration(
+              hintText: 'Search',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(7),
+              ),
+            ),
           ),
-        ],
+        ),
       ),
       body: bodies[indexBottomNavbar],
       bottomNavigationBar: BottomNavigationBar(
