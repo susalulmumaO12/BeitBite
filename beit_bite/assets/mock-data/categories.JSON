@@ -3,35 +3,43 @@
 
         {
             "id": "1",
-            "name": "Breakfast"
+            "name": "Breakfast",
+            "imagePath": "assets/images/chef.png"
         },
         {
             "id": "2",
-            "name": "Snacks"
+            "name": "Snacks",
+            "imagePath": "assets/images/carrot.png"
         },
         {
             "id": "3",
-            "name": "Lunch"
+            "name": "Lunch",
+            "imagePath": "assets/images/carrot.png"
         },
         {
             "id": "4",
-            "name": "Dinner"
+            "name": "Dinner",
+            "imagePath": "assets/images/carrot.png"
         },
         {
             "id": "5",
-            "name": "Dessert"
+            "name": "Dessert",
+            "imagePath": "assets/images/carrot.png"
         },
         {
             "id": "6",
-            "name": "Party"
+            "name": "Party",
+            "imagePath": "assets/images/carrot.png"
         },
         {
             "id": "7",
-            "name": "Kids"
+            "name": "Kids",
+            "imagePath": "assets/images/carrot.png"
         },
         {
             "id": "8",
-            "name": "Brunch"
+            "name": "Brunch",
+            "imagePath": "assets/images/carrot.png"
         }
     ]
 }

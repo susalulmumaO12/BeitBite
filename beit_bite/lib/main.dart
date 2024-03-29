@@ -1,8 +1,10 @@
 import 'package:beit_bite/chef/mainChef.dart';
 import 'package:beit_bite/customer/dishdetails.dart';
+import 'package:beit_bite/customer/homeCustomer.dart';
 import 'package:beit_bite/customer/mainCustomer.dart';
 import 'package:beit_bite/introscreen.dart';
 import 'package:beit_bite/login.dart';
+import 'package:beit_bite/models/dishmodel.dart';
 import 'package:beit_bite/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,8 +15,9 @@ final navigationProvider =
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  Future<dynamic> navigateTo(String routeName) {
-    return navigatorKey.currentState!.pushNamed(routeName);
+  Future<dynamic> navigateTo(String routeName, {arguments}) {
+    return navigatorKey.currentState!
+        .pushNamed(routeName, arguments: arguments);
   }
 }
 
@@ -43,7 +46,10 @@ class MyApp extends ConsumerWidget {
         '/loginpage': (context) => loginpage(),
         '/maincustomer': (context) => mainCustomer(),
         '/mainchef': (context) => mainChef(),
-        'dishdetails': (context) => dishdetails()
+        '/dishdetails': (context) {
+          final dish = ModalRoute.of(context)!.settings.arguments as Dish;
+          return dishdetails(dish: dish);
+        },
       },
     );
   }
